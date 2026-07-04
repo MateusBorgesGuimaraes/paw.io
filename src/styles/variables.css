@@ -1,0 +1,63 @@
+:root {
+  /* Font */
+
+  --font-family: "Manrope", sans-serif;
+
+  /* Backgrounds */
+
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-bg-tertiary: #f1f5f9;
+
+  /* Borders */
+
+  --color-border-ligth: #ededed;
+  --color-border-dark: #d6d9de;
+
+  /* Text */
+
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+
+  /* Primary */
+
+  --color-primary: #2563eb;
+  --color-primary-light: #dbeafe;
+
+  /* Success */
+
+  --color-success: #16a34a;
+  --color-success-hover: #15803d;
+  --color-success-light: #dcfce7;
+
+  /* Warning */
+
+  --color-warning: #d97706;
+  --color-warning-light: #fef3c7;
+
+  /* Danger */
+
+  --color-danger: #dc2626;
+  --color-danger-light: #fee2e2;
+
+  /* Info */
+
+  --color-info: #0891b2;
+  --color-info-light: #cffafe;
+
+  /* Radius */
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 6px 18px rgb(0 0 0 / 0.08);
+
+  /* Transition */
+
+  --transition: 150ms ease;
+}

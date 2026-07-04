@@ -1,0 +1,23 @@
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputBox label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.inputBox input {
+  height: 38px;
+}
+
+.req {
+  color: var(--color-danger);
+}
+
+.err {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+}

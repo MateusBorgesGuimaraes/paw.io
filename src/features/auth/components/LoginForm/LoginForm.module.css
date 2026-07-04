@@ -1,0 +1,30 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.err {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+}
+
+.buttonForm {
+  margin-top: 24px;
+  background: var(--color-success);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding-block: 10px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  width: 100%;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease;
+}
+
+.buttonForm:hover {
+  background: var(--color-success-hover);
+}

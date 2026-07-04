@@ -1,0 +1,89 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  margin-top: 16px;
+  margin-left: 16px;
+  position: sticky;
+  top: 0;
+  /*background: lightcoral;*/
+  overflow: hidden;
+  transition: width 0.2s ease;
+}
+
+.sidebar.collapsed {
+  align-items: center;
+}
+
+.expanded {
+  width: 260px;
+}
+
+.collapsed {
+  width: 56px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.group {
+  padding: 8px;
+}
+
+.groupLabel {
+  display: block;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.groupItems {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+
+.itemIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.item:hover {
+  background-color: var(--color-bg-tertiary);
+}
+
+.itemActive {
+  background-color: var(--color-bg-tertiary);
+  font-weight: 600;
+}
+
+.footer {
+  padding-bottom: 16px;
+}
+
+.tooltip {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}

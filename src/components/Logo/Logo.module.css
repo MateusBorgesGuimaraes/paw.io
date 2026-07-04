@@ -1,0 +1,12 @@
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.black {
+  color: var(--color-text);
+}
+
+.white {
+  color: #fff;
+}
