@@ -26,3 +26,13 @@
 .footerExit:hover {
   background: var(--color-bg-tertiary);
 }
+
+.header {
+  padding-inline: 16px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--color-border-ligth);
+}
+
+.contentLayout {
+  padding: 16px;
+}

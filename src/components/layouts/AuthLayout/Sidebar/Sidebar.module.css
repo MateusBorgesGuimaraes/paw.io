@@ -6,7 +6,6 @@
   margin-left: 16px;
   position: sticky;
   top: 0;
-  /*background: lightcoral;*/
   overflow: hidden;
   transition: width 0.2s ease;
 }
@@ -16,7 +15,7 @@
 }
 
 .expanded {
-  width: 260px;
+  width: 240px;
 }
 
 .collapsed {
@@ -42,6 +41,7 @@
   display: block;
   padding: 8px;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .groupItems {
