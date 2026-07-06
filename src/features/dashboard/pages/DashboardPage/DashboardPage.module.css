@@ -1,0 +1,62 @@
+.dashboardLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topHome {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.infosCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topCard {
+  font-weight: 600;
+}
+
+.middleCard {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.bottomCard {
+  color: var(--color-text-secondary);
+}
+
+.iconCard {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-tertiary);
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: 16px;
+}
+
+.chartsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: min(320px, 40vh);
+}

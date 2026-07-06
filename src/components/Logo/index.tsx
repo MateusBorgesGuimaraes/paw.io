@@ -8,7 +8,7 @@ type LogoProps = {
 
 export const Logo = ({ color = "black" }: LogoProps) => {
   return (
-    <Link to="/" className={clsx(styles.logo, styles[color])}>
+    <Link to="/dashboard" className={clsx(styles.logo, styles[color])}>
       Paw.io
     </Link>
   );

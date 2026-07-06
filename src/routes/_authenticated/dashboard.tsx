@@ -1,12 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DashboardPage } from "../../features/dashboard/pages/DashboardPage";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  component: RouteComponent,
+  component: DashboardPage,
   beforeLoad: () => ({
     page: { title: "Dashborad", subtitle: "Visão geral da clínica" },
   }),
 });
-
-function RouteComponent() {
-  return <div>Hello "/dashboard"!</div>;
-}
