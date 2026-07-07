@@ -1,0 +1,28 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.headerRow {
+  text-align: left;
+}
+
+.headerCell {
+  padding-bottom: 0.75rem;
+  padding-right: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #9ca3af;
+}
+
+.row {
+  border-top: 1px solid var(--color-border-dark);
+}
+
+.cell {
+  padding: 1rem 1rem 1rem 0;
+  color: #374151;
+}

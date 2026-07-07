@@ -14,11 +14,21 @@ import {
   Tooltip,
   XAxis,
   YAxis,
+  Rectangle,
+  type BarRectangleItem,
 } from "recharts";
 
 import { Box } from "../../../../components/Box";
 import styles from "./DashboardPage.module.css";
 import { useDashboard } from "../../hooks/useDashboard";
+import { SimpleTable, type Column } from "../../../../components/SimpleTable";
+import {
+  statusLabelMap,
+  statusVariantMap,
+  type DashboardAppointment,
+} from "../../utils/types";
+import { Badge } from "../../../../components/Badge";
+const COLORS = ["var(--color-primary)", "var(--color-success)"];
 
 export const DashboardPage = () => {
   const { data, isPending, error } = useDashboard();
@@ -33,10 +43,7 @@ export const DashboardPage = () => {
 
   const appointmentsChartData =
     data?.week_schedule.map((day) => ({
-      day: formatter
-        .format(new Date(day.date))
-        .replace(".", "")
-        .replace("-feira", ""),
+      day: formatter.format(new Date(day.date)).replace(".", ""),
       consultas: day.appointments.length,
     })) ?? [];
 
@@ -45,6 +52,28 @@ export const DashboardPage = () => {
       month: item.month,
       receita: item.total,
     })) ?? [];
+
+  const columns: Column<DashboardAppointment>[] = [
+    {
+      header: "Horário",
+      accessor: (row) =>
+        new Date(row.scheduled_at).toLocaleDateString("pt-BR", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }),
+    },
+    { header: "Pet", accessor: (row) => row.pet_name },
+    { header: "Veterinário", accessor: (row) => row.vet_name },
+    {
+      header: "Status",
+      accessor: (row) => (
+        <Badge variant={statusVariantMap[row.status]}>
+          {statusLabelMap[row.status]}
+        </Badge>
+      ),
+    },
+  ];
 
   return (
     <section className={styles.dashboardLayout}>
@@ -69,7 +98,7 @@ export const DashboardPage = () => {
             <div className={styles.infosCard}>
               <p className={styles.topCard}>Receita do mês</p>
               <p className={styles.middleCard}>{data?.revenue_this_month}</p>
-              <p className={styles.bottomCard}>{data?.revenue_change_pct}</p>
+              <p className={styles.bottomCard}>{data?.revenue_change_pct}%+</p>
             </div>
             <div className={styles.iconCard}>
               <HandCoinsIcon size={20} />
@@ -104,52 +133,72 @@ export const DashboardPage = () => {
         </Box>
       </div>
       <div className={styles.charts}>
-        <Box>
-          <div className={styles.chartsBox}>
-            <h4>Consultas por dia</h4>
-            <div className={styles.chartWrapper}>
-              <ResponsiveContainer width="100%">
-                <BarChart data={appointmentsChartData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-
-                  <XAxis dataKey="day" />
-
-                  <YAxis allowDecimals={false} />
-
-                  <Tooltip />
-
-                  <Bar dataKey="consultas" radius={[6, 6, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+        <div>
+          <Box>
+            <div className={styles.chartsBox}>
+              <h4>Consultas por dia</h4>
+              <div className={styles.chartWrapper}>
+                <ResponsiveContainer width="100%">
+                  <BarChart data={appointmentsChartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="day" />
+                    <YAxis allowDecimals={false} />
+                    <Tooltip />
+                    <Bar
+                      dataKey="consultas"
+                      shape={(props: BarRectangleItem) => {
+                        const { originalDataIndex, ...rest } = props;
+                        return (
+                          <Rectangle
+                            {...rest}
+                            radius={[6, 6, 0, 0]}
+                            fill={COLORS[originalDataIndex % 2]}
+                          />
+                        );
+                      }}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
             </div>
-          </div>
-        </Box>
+          </Box>
 
-        <Box>
-          <div className={styles.chartsBox}>
-            <h4>Receita mensal</h4>
-            <div className={styles.chartWrapper}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueChartData}>
-                  <CartesianGrid strokeDasharray="3 3" />
+          <Box>
+            <div className={styles.chartsBox}>
+              <h4>Receita mensal</h4>
+              <div className={styles.chartWrapper}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={revenueChartData}>
+                    <CartesianGrid strokeDasharray="3 3" />
 
-                  <XAxis dataKey="month" />
+                    <XAxis dataKey="month" />
 
-                  <YAxis />
+                    <YAxis />
 
-                  <Tooltip />
+                    <Tooltip />
 
-                  <Line
-                    type="monotone"
-                    dataKey="receita"
-                    stroke="#16a34a"
-                    strokeWidth={3}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+                    <Line
+                      type="monotone"
+                      dataKey="receita"
+                      stroke="var(--color-success)"
+                      strokeWidth={3}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
             </div>
-          </div>
-        </Box>
+          </Box>
+        </div>
+        <div className={styles.tableContainer}>
+          <Box>
+            <h4>Próximas consultas</h4>
+            <SimpleTable
+              columns={columns}
+              data={data.upcoming_appointments}
+              getRowKey={(row) => row.appointment_id}
+            />
+          </Box>
+        </div>
       </div>
     </section>
   );

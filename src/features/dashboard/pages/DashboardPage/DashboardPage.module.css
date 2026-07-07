@@ -46,7 +46,13 @@
 
 .charts {
   display: grid;
-  grid-template-columns: 4fr 5fr;
+  grid-template-columns: 2fr 3fr;
+  gap: 16px;
+}
+
+.charts > div {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -59,4 +65,8 @@
 .chartWrapper {
   width: 100%;
   height: min(320px, 40vh);
+}
+
+.tableContainer h4 {
+  margin-bottom: 12px;
 }
