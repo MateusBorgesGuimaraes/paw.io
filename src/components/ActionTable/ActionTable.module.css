@@ -1,0 +1,45 @@
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-ligth);
+  background-color: var(--color-bg);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.action:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text);
+  border-color: var(--color-border-dark);
+}
+
+.action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.action:disabled,
+.action[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.danger:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
