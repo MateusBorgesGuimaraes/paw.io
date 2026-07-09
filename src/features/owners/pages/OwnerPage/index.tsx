@@ -7,6 +7,8 @@ import { useGetOwners } from "../../hooks/useGetOwners";
 import { AdvancedTable } from "../../../../components/AdvancedTable";
 import { useState } from "react";
 import { useDebouncedValue } from "../../../../utils/hooks/useDebouncedValue";
+import { ButtonLink } from "../../../../components/form/ButtonLink";
+import styles from "./OwnerPage.module.css";
 const PAGE_SIZE = 5;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -66,7 +68,10 @@ export const OwnerPage = () => {
 
   if (!response) return <div>Erro ao carregar owners</div>;
   return (
-    <section>
+    <section className={styles.container}>
+      <ButtonLink variant="success" href="/owners/create">
+        Novo tutor
+      </ButtonLink>
       <Box>
         <AdvancedTable
           columns={columns}

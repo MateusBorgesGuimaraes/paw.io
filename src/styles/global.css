@@ -25,7 +25,7 @@ textarea,
 select {
   background: var(--color-bg);
   border: 1px solid var(--color-border-ligth);
-  border-radius: var(--radius-xs);
+  border-radius: 4px;
   padding-inline: 12px;
 }
 
