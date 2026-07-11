@@ -8,7 +8,8 @@ export const Route = createFileRoute('/_authenticated/owners/create')({
   component: CreateOwnerPage,
   beforeLoad: ({context}) => {
     const user = context.queryClient.getQueryData<CurrentUser>(["me"]);
-      if(!user || permissions.manageOwners.includes(user.role as UserRoles)) {
+    if (!user || !permissions.manageOwners.includes(user.role as UserRoles)) {
+      console.log('user', user);
         throw redirect({ to: "/dashboard" });
     }
     return {

@@ -1,0 +1,28 @@
+.infosContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-block: 12px;
+    border-bottom: 1px solid var(--color-border-dark);
+}
+
+.title {
+    font-size: .875rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-text-secondary);
+}
+
+.content {
+    font-size: .875rem;
+    font-weight: 500;
+}
+
+.cell:last-child {
+    border: none;
+}

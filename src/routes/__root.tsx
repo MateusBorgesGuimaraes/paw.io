@@ -7,9 +7,9 @@ interface RouterContext {
 }
 
 export const Route = createRootRouteWithContext<RouterContext>()({
-  component: () =><>
-
-    <Outlet />,
-    <Toaster richColors position="top-right" />
-  </>
+  component: () =>
+    <>
+      <Outlet />,
+      <Toaster richColors position="top-right" />
+    </>
 });

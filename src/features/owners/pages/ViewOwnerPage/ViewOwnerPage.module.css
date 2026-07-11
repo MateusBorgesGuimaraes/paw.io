@@ -1,0 +1,20 @@
+.boxs {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+}
+
+.tables {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.boxTitle {
+    margin-bottom: 12px;
+}
+
+
+.info {
+    max-height: max-content;
+}

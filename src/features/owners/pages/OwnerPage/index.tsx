@@ -37,7 +37,7 @@ const columns: ColumnDef<OwnerTable, any>[] = [
         <ActionTable
           icon={EyeIcon}
           label="Visualizar"
-          href={`/owner/${row.original.id}`}
+          href={`/owners/${row.original.id}`}
         />
         <ActionTable
           icon={PenIcon}
