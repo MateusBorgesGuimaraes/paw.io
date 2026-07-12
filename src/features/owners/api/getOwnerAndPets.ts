@@ -3,7 +3,7 @@ import { api } from "../../../services/api";
 import type { OwnerAndPets } from "../utils/types";
 
 export async function getOwnerAndPets(id:number) {
-  const response = await api.get<OwnerAndPets>(`/owners/${id}`);
+  const response = await api.get<OwnerAndPets>(`/owners/${id}/pets`);
   return response.data;
 }
 

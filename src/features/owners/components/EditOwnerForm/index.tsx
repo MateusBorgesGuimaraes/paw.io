@@ -1,27 +1,48 @@
 import { useForm } from "react-hook-form"
-import { createOwnerSchema, type CreateOwnerSchema } from "../../schemas/create-owner.schema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useCreateOwner } from "../../hooks/useCreateOwner";
 import { Input } from "../../../../components/form/Input";
-import styles from './CreateOwnerForm.module.css'
+import styles from './EditOwnerForm.module.css'
 import { InputMask } from "../../../../components/form/InputMask";
 import { ButtonLink } from "../../../../components/form/ButtonLink";
+import { useParams } from "@tanstack/react-router";
+import { useGetOwner } from "../../hooks/useGetOwner";
+import { editOwnerSchema, type EditOwnerSchema } from "../../schemas/edit-owner.schema";
+import { useEffect } from "react";
+import { useEditOwner } from "../../hooks/useEditOwner";
 
-export const CreateOwnerForm = () => {
+export const EditOwnerForm = () => {
+  const { id } = useParams({ from: '/_authenticated/owners/$id/edit' });
+  const { data, error, isPending } = useGetOwner(Number(id));
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors }
-  } = useForm<CreateOwnerSchema>({
-    resolver: zodResolver(createOwnerSchema)
+  } = useForm<EditOwnerSchema>({
+    resolver: zodResolver(editOwnerSchema)
   });
 
-  const { mutate, isPending, error } = useCreateOwner();
+  useEffect(() => {
+      if (data) {
+        reset({
+          name: data.name,
+          email: data.email ?? undefined,
+          cpf: data.cpf ?? undefined,
+          phone: data.phone,
+          address: data.address ?? undefined,
+        })
+      }
+    }, [data, reset])
 
-  const onSubmit = (data: CreateOwnerSchema) => {
-    mutate(data)
+
+  const { mutate, isPending: isSaving } = useEditOwner(Number(id))
+
+  const onSubmit = (formData: EditOwnerSchema) => {
+    mutate(formData)
   }
+
+  if (isPending) return <p>Carregando...</p>
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className={styles.inputContainer}>
@@ -30,7 +51,6 @@ export const CreateOwnerForm = () => {
         label="Nome completo"
         placeholder="Ex: Mari da Silva Santos"
         type="text"
-        requerid
         error={errors.name?.message}
         {...register("name")}
         />
@@ -39,7 +59,6 @@ export const CreateOwnerForm = () => {
           label="Email"
           placeholder="Ex: seuemai@email.com"
           type="email"
-          description="Opcional. Usado para envio de lembretes."
           error={errors.email?.message}
           {...register("email")}
         />
@@ -61,7 +80,6 @@ export const CreateOwnerForm = () => {
           format="(##) #####-####"
           placeholder="(11) 99999-0000"
           mask="_"
-          requerid
           type="text"
           error={errors.phone?.message}
           {...register("phone")}
@@ -76,18 +94,18 @@ export const CreateOwnerForm = () => {
         {...register("address")}
       />
       {error && (
-        <p className={styles.err}>Dados inválidos. Tente novamente.</p>
+        <p className={styles.err}>Erro ao carregar os dados. Tente novamente.</p>
       )}
       <div className={styles.buttonsContainer}>
         <ButtonLink type="button" onClick={() => reset()} variant="default">
           Cancelar
         </ButtonLink>
         <ButtonLink variant="success" type="submit">
-          {isPending ? (
-            "Criando..."
+          {isSaving ? (
+            "Salvando..."
           ) : (
             <>
-                Criar tutor
+                Salvar mudanças
             </>
           )}
         </ButtonLink>

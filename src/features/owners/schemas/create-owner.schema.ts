@@ -5,7 +5,7 @@ export const createOwnerSchema = z.object({
   cpf: z.string().optional(),
   phone: z.string().min(8, "O numero deve ser brasileiro"),
   email: z.email().optional(),
-  adress: z.string().optional(),
+  address: z.string().optional(),
 
 })
 

@@ -1,10 +1,10 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
-import { ViewOwnerPage } from '../../../features/owners/pages/ViewOwnerPage'
-import type { CurrentUser } from '../../../features/auth/api/me';
-import { permissions } from '../../../utils/permissions';
-import type { UserRoles } from '../../../utils/types';
+import { ViewOwnerPage } from '../../../../features/owners/pages/ViewOwnerPage'
+import type { CurrentUser } from '../../../../features/auth/api/me';
+import { permissions } from '../../../../utils/permissions';
+import type { UserRoles } from '../../../../utils/types';
 
-export const Route = createFileRoute('/_authenticated/owners/$id')({
+export const Route = createFileRoute('/_authenticated/owners/$id/')({
   component: ViewOwnerPage,
   beforeLoad: ({context}) => {
       const user = context.queryClient.getQueryData<CurrentUser>(["me"]);

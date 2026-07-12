@@ -4,7 +4,18 @@ export type OwnerTable = {
   email?: string;
   phone: string;
   cpf?: string;
+  is_active: number;
 };
+
+export type Owner = {
+  id: number;
+  name: string;
+  email?: string;
+  phone: string;
+  cpf?: string;
+  address?: string;
+  is_active: number;
+}
 
 export type PetStatus = 'active'| 'inactive' | 'deceased'
 export type PaymentStatus = 'pending' | 'paid' | 'cancelled' | 'refunded'

@@ -14,7 +14,8 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedOwnersIndexRouteImport } from './routes/_authenticated/owners/index'
 import { Route as AuthenticatedOwnersCreateRouteImport } from './routes/_authenticated/owners/create'
-import { Route as AuthenticatedOwnersIdRouteImport } from './routes/_authenticated/owners/$id'
+import { Route as AuthenticatedOwnersIdIndexRouteImport } from './routes/_authenticated/owners/$id/index'
+import { Route as AuthenticatedOwnersIdEditRouteImport } from './routes/_authenticated/owners/$id/edit'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -42,36 +43,46 @@ const AuthenticatedOwnersCreateRoute =
     path: '/owners/create',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedOwnersIdRoute = AuthenticatedOwnersIdRouteImport.update({
-  id: '/owners/$id',
-  path: '/owners/$id',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
+const AuthenticatedOwnersIdIndexRoute =
+  AuthenticatedOwnersIdIndexRouteImport.update({
+    id: '/owners/$id/',
+    path: '/owners/$id/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOwnersIdEditRoute =
+  AuthenticatedOwnersIdEditRouteImport.update({
+    id: '/owners/$id/edit',
+    path: '/owners/$id/edit',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthenticatedRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/owners/$id': typeof AuthenticatedOwnersIdRoute
   '/owners/create': typeof AuthenticatedOwnersCreateRoute
   '/owners/': typeof AuthenticatedOwnersIndexRoute
+  '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
+  '/owners/$id/': typeof AuthenticatedOwnersIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/owners/$id': typeof AuthenticatedOwnersIdRoute
   '/owners/create': typeof AuthenticatedOwnersCreateRoute
   '/owners': typeof AuthenticatedOwnersIndexRoute
+  '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
+  '/owners/$id': typeof AuthenticatedOwnersIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/login': typeof LoginRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/owners/$id': typeof AuthenticatedOwnersIdRoute
   '/_authenticated/owners/create': typeof AuthenticatedOwnersCreateRoute
   '/_authenticated/owners/': typeof AuthenticatedOwnersIndexRoute
+  '/_authenticated/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
+  '/_authenticated/owners/$id/': typeof AuthenticatedOwnersIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -79,20 +90,28 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/dashboard'
-    | '/owners/$id'
     | '/owners/create'
     | '/owners/'
+    | '/owners/$id/edit'
+    | '/owners/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/login' | '/dashboard' | '/owners/$id' | '/owners/create' | '/owners'
+    | '/'
+    | '/login'
+    | '/dashboard'
+    | '/owners/create'
+    | '/owners'
+    | '/owners/$id/edit'
+    | '/owners/$id'
   id:
     | '__root__'
     | '/_authenticated'
     | '/login'
     | '/_authenticated/dashboard'
-    | '/_authenticated/owners/$id'
     | '/_authenticated/owners/create'
     | '/_authenticated/owners/'
+    | '/_authenticated/owners/$id/edit'
+    | '/_authenticated/owners/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -137,11 +156,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOwnersCreateRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/owners/$id': {
-      id: '/_authenticated/owners/$id'
+    '/_authenticated/owners/$id/': {
+      id: '/_authenticated/owners/$id/'
       path: '/owners/$id'
-      fullPath: '/owners/$id'
-      preLoaderRoute: typeof AuthenticatedOwnersIdRouteImport
+      fullPath: '/owners/$id/'
+      preLoaderRoute: typeof AuthenticatedOwnersIdIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/owners/$id/edit': {
+      id: '/_authenticated/owners/$id/edit'
+      path: '/owners/$id/edit'
+      fullPath: '/owners/$id/edit'
+      preLoaderRoute: typeof AuthenticatedOwnersIdEditRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
   }
@@ -149,16 +175,18 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedOwnersIdRoute: typeof AuthenticatedOwnersIdRoute
   AuthenticatedOwnersCreateRoute: typeof AuthenticatedOwnersCreateRoute
   AuthenticatedOwnersIndexRoute: typeof AuthenticatedOwnersIndexRoute
+  AuthenticatedOwnersIdEditRoute: typeof AuthenticatedOwnersIdEditRoute
+  AuthenticatedOwnersIdIndexRoute: typeof AuthenticatedOwnersIdIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedOwnersIdRoute: AuthenticatedOwnersIdRoute,
   AuthenticatedOwnersCreateRoute: AuthenticatedOwnersCreateRoute,
   AuthenticatedOwnersIndexRoute: AuthenticatedOwnersIndexRoute,
+  AuthenticatedOwnersIdEditRoute: AuthenticatedOwnersIdEditRoute,
+  AuthenticatedOwnersIdIndexRoute: AuthenticatedOwnersIdIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

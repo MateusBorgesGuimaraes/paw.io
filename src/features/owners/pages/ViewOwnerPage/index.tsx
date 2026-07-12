@@ -27,7 +27,7 @@ function formatCurrency(value?: number) {
 }
 
 export const ViewOwnerPage = () => {
-  const { id } = useParams({ from: '/_authenticated/owners/$id' });
+  const { id } = useParams({ from: '/_authenticated/owners/$id/' });
   const { data, error, isLoading } = useGetOwnerAndPets(Number(id));
   const { data: dataApt, error: errorAp, isLoading: isLoadingAp } = useGetAppointments(Number(id));
 
