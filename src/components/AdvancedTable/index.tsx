@@ -27,23 +27,6 @@ interface ManualPaginationProps {
   total: number;
 }
 
-export interface SelectFilterOption {
-  label: string;
-  value: string;
-}
-
-export interface SelectFilter {
-  id: string;
-
-  label: string;
-
-  placeholder?: string;
-  options: SelectFilterOption[];
-
-  value: string;
-  onChange: (value: string) => void;
-}
-
 interface AdvancedTableProps<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: ColumnDef<T, any>[];
@@ -55,8 +38,6 @@ interface AdvancedTableProps<T> {
 
   search?: ManualSearchProps;
   pagination?: ManualPaginationProps;
-
-  filters?: SelectFilter[];
 }
 
 export function AdvancedTable<T>({
@@ -67,7 +48,6 @@ export function AdvancedTable<T>({
   emptyMessage = "Nenhum resultado encontrado.",
   search,
   pagination,
-  filters,
 }: AdvancedTableProps<T>) {
   const isManualSearch = search !== undefined;
   const isManualPagination = pagination !== undefined;
@@ -146,29 +126,6 @@ export function AdvancedTable<T>({
           value={searchValue}
           onChange={(event) => onSearchChange(event.target.value)}
         />
-
-        {filters && filters.length > 0 && (
-          <div className={styles.filtersGroup}>
-            {filters.map((filter) => (
-              <select
-                key={filter.id}
-                className={styles.filterSelect}
-                value={filter.value}
-                onChange={(event) => filter.onChange(event.target.value)}
-                aria-label={filter.label}
-              >
-                <option value="">
-                  {filter.placeholder ?? `Todos: ${filter.label}`}
-                </option>
-                {filter.options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            ))}
-          </div>
-        )}
       </div>
 
       <table className={styles.table}>
