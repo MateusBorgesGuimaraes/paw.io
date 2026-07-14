@@ -1,0 +1,23 @@
+.selectBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.selectBox label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.selectBox select {
+  height: 38px;
+}
+.desc {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+.req {
+  color: var(--color-danger);
+}
+.err {
+  color: var(--color-danger);
+  font-size: 0.75rem;
+}

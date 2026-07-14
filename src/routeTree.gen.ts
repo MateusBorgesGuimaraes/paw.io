@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedPetsIndexRouteImport } from './routes/_authenticated/pets/index'
 import { Route as AuthenticatedOwnersIndexRouteImport } from './routes/_authenticated/owners/index'
+import { Route as AuthenticatedPetsCreateRouteImport } from './routes/_authenticated/pets/create'
 import { Route as AuthenticatedOwnersCreateRouteImport } from './routes/_authenticated/owners/create'
 import { Route as AuthenticatedOwnersIdIndexRouteImport } from './routes/_authenticated/owners/$id/index'
 import { Route as AuthenticatedOwnersIdEditRouteImport } from './routes/_authenticated/owners/$id/edit'
@@ -43,6 +44,11 @@ const AuthenticatedOwnersIndexRoute =
     path: '/owners/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedPetsCreateRoute = AuthenticatedPetsCreateRouteImport.update({
+  id: '/pets/create',
+  path: '/pets/create',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedOwnersCreateRoute =
   AuthenticatedOwnersCreateRouteImport.update({
     id: '/owners/create',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/owners/create': typeof AuthenticatedOwnersCreateRoute
+  '/pets/create': typeof AuthenticatedPetsCreateRoute
   '/owners/': typeof AuthenticatedOwnersIndexRoute
   '/pets/': typeof AuthenticatedPetsIndexRoute
   '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/owners/create': typeof AuthenticatedOwnersCreateRoute
+  '/pets/create': typeof AuthenticatedPetsCreateRoute
   '/owners': typeof AuthenticatedOwnersIndexRoute
   '/pets': typeof AuthenticatedPetsIndexRoute
   '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/owners/create': typeof AuthenticatedOwnersCreateRoute
+  '/_authenticated/pets/create': typeof AuthenticatedPetsCreateRoute
   '/_authenticated/owners/': typeof AuthenticatedOwnersIndexRoute
   '/_authenticated/pets/': typeof AuthenticatedPetsIndexRoute
   '/_authenticated/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/dashboard'
     | '/owners/create'
+    | '/pets/create'
     | '/owners/'
     | '/pets/'
     | '/owners/$id/edit'
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/dashboard'
     | '/owners/create'
+    | '/pets/create'
     | '/owners'
     | '/pets'
     | '/owners/$id/edit'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/_authenticated/dashboard'
     | '/_authenticated/owners/create'
+    | '/_authenticated/pets/create'
     | '/_authenticated/owners/'
     | '/_authenticated/pets/'
     | '/_authenticated/owners/$id/edit'
@@ -168,6 +180,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOwnersIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/pets/create': {
+      id: '/_authenticated/pets/create'
+      path: '/pets/create'
+      fullPath: '/pets/create'
+      preLoaderRoute: typeof AuthenticatedPetsCreateRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/owners/create': {
       id: '/_authenticated/owners/create'
       path: '/owners/create'
@@ -195,6 +214,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedOwnersCreateRoute: typeof AuthenticatedOwnersCreateRoute
+  AuthenticatedPetsCreateRoute: typeof AuthenticatedPetsCreateRoute
   AuthenticatedOwnersIndexRoute: typeof AuthenticatedOwnersIndexRoute
   AuthenticatedPetsIndexRoute: typeof AuthenticatedPetsIndexRoute
   AuthenticatedOwnersIdEditRoute: typeof AuthenticatedOwnersIdEditRoute
@@ -204,6 +224,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedOwnersCreateRoute: AuthenticatedOwnersCreateRoute,
+  AuthenticatedPetsCreateRoute: AuthenticatedPetsCreateRoute,
   AuthenticatedOwnersIndexRoute: AuthenticatedOwnersIndexRoute,
   AuthenticatedPetsIndexRoute: AuthenticatedPetsIndexRoute,
   AuthenticatedOwnersIdEditRoute: AuthenticatedOwnersIdEditRoute,

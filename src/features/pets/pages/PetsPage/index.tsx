@@ -9,6 +9,9 @@ import { useState } from 'react';
 import { useDebouncedValue } from '../../../../utils/hooks/useDebouncedValue';
 import { useGetPets } from '../../hooks/useGetPets';
 import { AdvancedTable } from '../../../../components/AdvancedTable';
+import { ActionTable } from '../../../../components/ActionTable';
+import { EyeIcon, PenIcon } from 'lucide-react';
+import { StatusBadge } from '../../../owners/components/StatusBadge';
 const PAGE_SIZE = 5;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,9 +49,33 @@ const columns: ColumnDef<PetTable, any>[] = [
       </>
     ),
   },
-  { accessorKey: "status", header: "STATUS" },
+  {
+    accessorKey: "status",
+    header: "STATUS",
+    cell: ({ row }) => (
+      <StatusBadge type="pet" status={row.original.status} />
+    ),
+  },
   { accessorKey: "owner_phone", header: "TELEFONE DO TUTOR" },
   { accessorKey: "owner_name", header: "NOME DO TUTOR" },
+  {
+    id: "actions",
+    header: "AÇÕES",
+    cell: ({ row }) => (
+      <div style={{ display: "flex", gap: 8 }}>
+        <ActionTable
+          icon={EyeIcon}
+          label="Visualizar"
+          href={`/owners/${row.original.id}/`}
+        />
+        <ActionTable
+          icon={PenIcon}
+          label="Editar"
+          href={`/owners/${row.original.id}/edit`}
+        />
+      </div>
+    ),
+  },
 ]
 
 export const PetsPage = () => {
@@ -61,7 +88,7 @@ export const PetsPage = () => {
 
   return (
     <section className={styles.container}>
-      <ButtonLink variant="success" href="/owners/create">
+      <ButtonLink variant="success" href="/pets/create">
         Novo Pet
       </ButtonLink>
       <Box>
