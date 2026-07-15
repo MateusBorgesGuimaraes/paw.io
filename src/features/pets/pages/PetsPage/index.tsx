@@ -66,12 +66,12 @@ const columns: ColumnDef<PetTable, any>[] = [
         <ActionTable
           icon={EyeIcon}
           label="Visualizar"
-          href={`/owners/${row.original.id}/`}
+          href={`/pets/${row.original.id}/`}
         />
         <ActionTable
           icon={PenIcon}
           label="Editar"
-          href={`/owners/${row.original.id}/edit`}
+          href={`/pets/${row.original.id}/edit`}
         />
       </div>
     ),
