@@ -1,0 +1,50 @@
+.viewContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.button {
+    align-self: flex-end;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: self-start;
+}
+
+.petNameBox {
+    display: flex;
+    align-items: self-start;
+    gap: 12px;
+}
+
+.petName {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.detailsPet {
+    font-size: .875rem;
+    display: flex;
+    gap: 12px;
+}
+
+
+.footer {
+    display: flex;
+    margin-top: 32px;
+}
+
+.footer > * {
+    padding-inline: 24px;
+    border-right: 1px solid var(--color-border-dark);
+}
+
+.footer > div:first-child{
+    padding-left: 0;
+}
+
+
+.footer > div:last-child {
+    border-right: none;
+}

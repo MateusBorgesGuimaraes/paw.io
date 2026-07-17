@@ -16,6 +16,7 @@ import { Route as AuthenticatedPetsIndexRouteImport } from './routes/_authentica
 import { Route as AuthenticatedOwnersIndexRouteImport } from './routes/_authenticated/owners/index'
 import { Route as AuthenticatedPetsCreateRouteImport } from './routes/_authenticated/pets/create'
 import { Route as AuthenticatedOwnersCreateRouteImport } from './routes/_authenticated/owners/create'
+import { Route as AuthenticatedPetsIdIndexRouteImport } from './routes/_authenticated/pets/$id/index'
 import { Route as AuthenticatedOwnersIdIndexRouteImport } from './routes/_authenticated/owners/$id/index'
 import { Route as AuthenticatedPetsIdEditRouteImport } from './routes/_authenticated/pets/$id/edit'
 import { Route as AuthenticatedOwnersIdEditRouteImport } from './routes/_authenticated/owners/$id/edit'
@@ -56,6 +57,12 @@ const AuthenticatedOwnersCreateRoute =
     path: '/owners/create',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedPetsIdIndexRoute =
+  AuthenticatedPetsIdIndexRouteImport.update({
+    id: '/pets/$id/',
+    path: '/pets/$id/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedOwnersIdIndexRoute =
   AuthenticatedOwnersIdIndexRouteImport.update({
     id: '/owners/$id/',
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
   '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
   '/pets/$id/edit': typeof AuthenticatedPetsIdEditRoute
   '/owners/$id/': typeof AuthenticatedOwnersIdIndexRoute
+  '/pets/$id/': typeof AuthenticatedPetsIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AuthenticatedRouteRouteWithChildren
@@ -97,6 +105,7 @@ export interface FileRoutesByTo {
   '/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
   '/pets/$id/edit': typeof AuthenticatedPetsIdEditRoute
   '/owners/$id': typeof AuthenticatedOwnersIdIndexRoute
+  '/pets/$id': typeof AuthenticatedPetsIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -110,6 +119,7 @@ export interface FileRoutesById {
   '/_authenticated/owners/$id/edit': typeof AuthenticatedOwnersIdEditRoute
   '/_authenticated/pets/$id/edit': typeof AuthenticatedPetsIdEditRoute
   '/_authenticated/owners/$id/': typeof AuthenticatedOwnersIdIndexRoute
+  '/_authenticated/pets/$id/': typeof AuthenticatedPetsIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
     | '/owners/$id/edit'
     | '/pets/$id/edit'
     | '/owners/$id/'
+    | '/pets/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
     | '/owners/$id/edit'
     | '/pets/$id/edit'
     | '/owners/$id'
+    | '/pets/$id'
   id:
     | '__root__'
     | '/_authenticated'
@@ -148,6 +160,7 @@ export interface FileRouteTypes {
     | '/_authenticated/owners/$id/edit'
     | '/_authenticated/pets/$id/edit'
     | '/_authenticated/owners/$id/'
+    | '/_authenticated/pets/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOwnersCreateRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/pets/$id/': {
+      id: '/_authenticated/pets/$id/'
+      path: '/pets/$id'
+      fullPath: '/pets/$id/'
+      preLoaderRoute: typeof AuthenticatedPetsIdIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/owners/$id/': {
       id: '/_authenticated/owners/$id/'
       path: '/owners/$id'
@@ -239,6 +259,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedOwnersIdEditRoute: typeof AuthenticatedOwnersIdEditRoute
   AuthenticatedPetsIdEditRoute: typeof AuthenticatedPetsIdEditRoute
   AuthenticatedOwnersIdIndexRoute: typeof AuthenticatedOwnersIdIndexRoute
+  AuthenticatedPetsIdIndexRoute: typeof AuthenticatedPetsIdIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -250,6 +271,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedOwnersIdEditRoute: AuthenticatedOwnersIdEditRoute,
   AuthenticatedPetsIdEditRoute: AuthenticatedPetsIdEditRoute,
   AuthenticatedOwnersIdIndexRoute: AuthenticatedOwnersIdIndexRoute,
+  AuthenticatedPetsIdIndexRoute: AuthenticatedPetsIdIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

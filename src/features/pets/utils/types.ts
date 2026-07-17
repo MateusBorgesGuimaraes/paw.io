@@ -36,3 +36,133 @@ export type FullPet = {
   next_appointment?: string,
   next_vaccine: string
 }
+
+
+export type MedicalRecordData = {
+  id: number;
+  appointment_id: number;
+  symptoms: string;
+  diagnosis: string;
+  observations?: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type ExamStatus =
+  "requested" | "in_progress" | "completed" | "cancelled";
+
+export type ExamData = {
+  id: number;
+  pet_id: number;
+  medical_record_id: number;
+  exam_name: string;
+  result?: string;
+  status: ExamStatus;
+  request_date: string;
+  updated_at: string;
+};
+
+export type TreatmentStatus = "active" | "completed" | "cancelled";
+
+export type TreatmentData = {
+  id: number;
+  pet_id: number;
+  medical_record_id: number;
+  description: string;
+  start_date: string;
+  end_date: string;
+  status: TreatmentStatus;
+};
+
+export type PrescriptionData = {
+  id: number;
+  medical_record_id: number;
+  medication_name: string;
+  dosage: string;
+  frequency: string;
+  duration: string;
+  instructions?: string;
+  created_at: string;
+};
+
+export type PetMedicalHistory = {
+  appointment_id: number;
+  scheduled_at: string;
+  reason: string;
+  appointment_status: string;
+  vet_name: string;
+  specialty: string;
+  medical_record_id: number | null;
+  symptoms: string | null;
+  diagnosis: string | null;
+  observations: string | null;
+  pet_id: number;
+  pet_name: string;
+  species: string;
+  breed: string;
+  owner_name: string;
+  owner_phone: string;
+};
+
+export type PetExam = {
+  exam_id: number;
+  exam_name: string;
+  exam_status: ExamStatus;
+  result: string | null;
+  request_date: string;
+  updated_at: string;
+  pet_id: number;
+  pet_name: string;
+  species: string;
+  owner_name: string;
+  diagnosis: string;
+  consultation_date: string;
+  vet_name: string;
+};
+
+export type PetActiveTreatment = {
+  treatment_id: number;
+  description: string;
+  start_date: string;
+  end_date: string;
+  status: TreatmentStatus;
+  pet_id: number;
+  pet_name: string;
+  species: string;
+  owner_name: string;
+  owner_phone: string;
+  vet_name: string;
+  consultation_date: string;
+};
+
+
+export type PetVaccine = {
+  vaccine_id: number;
+  vaccine_name: string;
+  batch: string | null;
+  application_date: string;
+  next_dose: string;
+  days_until_next_dose: number;
+  pet_id: number;
+  pet_name: string;
+  species: string;
+  breed: string;
+  pet_status: string;
+  owner_name: string;
+  owner_phone: string;
+  owner_email: string | null;
+};
+
+
+export type AppointmentStatus =
+  "scheduled" | "in_progress" | "completed" | "cancelled" | "no_show";
+
+export type PetAppointment = {
+  appointment_id: number;
+  scheduled_at: string;
+  reason: string;
+  status: AppointmentStatus;
+  notes?: string;
+  vet_name: string;
+  pet_id: number;
+};
