@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./OwnerPicker.module.css";
-import type { OwnerTable } from "../../../owners/utils/types";
 import { useDebouncedValue } from "../../../../utils/hooks/useDebouncedValue";
-import { useGetOwners } from "../../hooks/useGetOwners";
+import type { OwnerTable } from "../../../../entities/owner/types";
+import { useGetOwnersBoolean } from "../../../../entities/owner/api/hooks/useGetOwnersBoolean";
 
 interface OwnerPickerProps {
   value?: number;
@@ -33,7 +33,7 @@ export function OwnerPicker({
 
   const debouncedSearch = useDebouncedValue(searchInput, 300);
 
-  const { data: response } = useGetOwners(
+  const { data: response } = useGetOwnersBoolean(
     debouncedSearch,
     1,
     debouncedSearch.length > 0,

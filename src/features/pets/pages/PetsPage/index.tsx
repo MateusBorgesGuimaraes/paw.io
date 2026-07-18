@@ -3,15 +3,15 @@ import { Box } from '../../../../components/Box';
 import { ButtonLink } from '../../../../components/form/ButtonLink';
 import styles from './PetsPage.module.css';
 import {type  ColumnDef } from '@tanstack/react-table';
-import type { PetTable } from '../../utils/types';
 import { calculateAge } from '../../../../utils/calculateAge';
 import { useState } from 'react';
 import { useDebouncedValue } from '../../../../utils/hooks/useDebouncedValue';
-import { useGetPets } from '../../hooks/useGetPets';
 import { AdvancedTable } from '../../../../components/AdvancedTable';
 import { ActionTable } from '../../../../components/ActionTable';
 import { EyeIcon, PenIcon } from 'lucide-react';
 import { StatusBadge } from '../../../owners/components/StatusBadge';
+import type { PetTable } from '../../../../entities/pet/types';
+import { useGetPets } from '../../../../entities/pet/api/hooks/useGetPets';
 const PAGE_SIZE = 5;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

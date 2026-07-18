@@ -5,10 +5,11 @@ import styles from './EditOwnerForm.module.css'
 import { InputMask } from "../../../../components/form/InputMask";
 import { ButtonLink } from "../../../../components/form/ButtonLink";
 import { useParams } from "@tanstack/react-router";
-import { useGetOwner } from "../../hooks/useGetOwner";
 import { editOwnerSchema, type EditOwnerSchema } from "../../schemas/edit-owner.schema";
 import { useEffect } from "react";
-import { useEditOwner } from "../../hooks/useEditOwner";
+import { useGetOwner } from "../../../../entities/owner/api/hooks/useGetOwner";
+import { useEditOwner } from "../../../../entities/owner/api/hooks/useEditOwner";
+
 
 export const EditOwnerForm = () => {
   const { id } = useParams({ from: '/_authenticated/owners/$id/edit' });

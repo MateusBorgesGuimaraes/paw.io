@@ -1,7 +1,6 @@
 import { Controller, useForm } from "react-hook-form"
 import { createPetSchema, type CreatePetSchema } from "../../schemas/create-pet.schema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useCreatePet } from "../../hooks/useCreatePet";
 import { Input } from "../../../../components/form/Input";
 import { Select } from "../../../../components/form/Select";
 import { ToggleGroup } from "../../../../components/form/ToggleGroup";
@@ -11,7 +10,9 @@ import { ButtonLink } from "../../../../components/form/ButtonLink";
 import { OwnerPicker } from "../OwnerPicker";
 import { Box } from "../../../../components/Box";
 import { InputMask } from "../../../../components/form/InputMask";
-import { speciesItems } from "../../utils/especies";
+import { useCreatePet } from "../../../../entities/pet/api/hooks/useCreatePet";
+import { speciesItems } from "../../../../entities/pet/especies";
+
 
 export const CreatePetForm = () => {
   const {

@@ -1,5 +1,6 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./TabComponent.module.css";
+import { ResumeTab } from "./Tabs/ResumeTab";
 
 export const TabComponent = () => {
   return (
@@ -30,27 +31,27 @@ export const TabComponent = () => {
         </Tabs.Trigger>
       </Tabs.List>
 
-      <Tabs.Content value="resume">
-        <p>Resumo box.</p>
+      <Tabs.Content className={styles.tabsContent} value="resume">
+        <ResumeTab />
       </Tabs.Content>
 
-      <Tabs.Content value="appointments">
+      <Tabs.Content className={styles.tabsContent} value="appointments">
         <p>Consultas Box.</p>
       </Tabs.Content>
 
-      <Tabs.Content value="medicalRecords">
+      <Tabs.Content className={styles.tabsContent} value="medicalRecords">
         <p>Prontuarios box.</p>
       </Tabs.Content>
 
-      <Tabs.Content value="vaccines">
+      <Tabs.Content className={styles.tabsContent} value="vaccines">
         <p>Vacinas box.</p>
       </Tabs.Content>
 
-      <Tabs.Content value="exams">
+      <Tabs.Content className={styles.tabsContent} value="exams">
         <p>Exanes box.</p>
       </Tabs.Content>
 
-      <Tabs.Content value="treatments">
+      <Tabs.Content className={styles.tabsContent} value="treatments">
         <p>Tratamentos box.</p>
       </Tabs.Content>
     </Tabs.Root>

@@ -20,10 +20,10 @@ import {
   SyringeIcon,
   UsersRoundIcon,
 } from "lucide-react";
-import { useLogout } from "../../../features/auth/hooks/useLogout";
-import { useCurrentUser } from "../../../features/auth/hooks/useCurrentUser";
 import { IntroPage } from "../../IntroPage";
 import type { RouterContext } from "../../../app/router";
+import { useLogout } from "../../../entities/auth/api/hooks/useLogout";
+import { useCurrentUser } from "../../../entities/auth/api/hooks/useCurrentUser";
 
 export function AuthLayout() {
   const page = useRouterState({

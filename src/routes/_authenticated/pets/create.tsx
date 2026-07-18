@@ -1,8 +1,8 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { CreatePetPage } from '../../../features/pets/pages/CreatePetPage'
-import type { CurrentUser } from '../../../features/auth/api/me';
 import type { UserRoles } from '../../../utils/types';
 import { permissions } from '../../../utils/permissions';
+import type { CurrentUser } from '../../../entities/auth/api/me';
 
 export const Route = createFileRoute('/_authenticated/pets/create')({
   component: CreatePetPage,

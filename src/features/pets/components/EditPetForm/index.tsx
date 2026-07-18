@@ -1,17 +1,17 @@
 import { useParams } from "@tanstack/react-router"
-import { useGetPet } from "../../hooks/useGetPet";
 import { useForm } from "react-hook-form";
 import { editPetSchema, type EditPetSchema } from "../../schemas/edit-pet.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import { useEditPet } from "../../hooks/useEditPet";
 import styles from './EditPetForm.module.css'
 import { Input } from "../../../../components/form/Input";
-import { speciesItems } from "../../utils/especies";
 import { Select } from "../../../../components/form/Select";
 import { ToggleGroup } from "../../../../components/form/ToggleGroup";
 import { InputMask } from "../../../../components/form/InputMask";
 import { ButtonLink } from "../../../../components/form/ButtonLink";
+import { useGetPet } from "../../../../entities/pet/api/hooks/useGetPet";
+import { useEditPet } from "../../../../entities/pet/api/hooks/useEditPet";
+import { speciesItems } from "../../../../entities/pet/especies";
 
 export const EditPetForm = () => {
   const { id } = useParams({ from: '/_authenticated/pets/$id/edit' });

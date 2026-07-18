@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form"
 import { createOwnerSchema, type CreateOwnerSchema } from "../../schemas/create-owner.schema"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useCreateOwner } from "../../hooks/useCreateOwner";
 import { Input } from "../../../../components/form/Input";
 import styles from './CreateOwnerForm.module.css'
 import { InputMask } from "../../../../components/form/InputMask";
 import { ButtonLink } from "../../../../components/form/ButtonLink";
+import { useCreateOwner } from "../../../../entities/owner/api/hooks/useCreateOwner";
 
 export const CreateOwnerForm = () => {
   const {

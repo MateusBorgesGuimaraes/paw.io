@@ -1,4 +1,4 @@
-import { usePermission } from "../../features/auth/hooks/usePermission";
+import { usePermission } from "../../entities/auth/api/hooks/usePermission";
 
 type Role = "admin" | "receptionist" | "veterinarian";
 

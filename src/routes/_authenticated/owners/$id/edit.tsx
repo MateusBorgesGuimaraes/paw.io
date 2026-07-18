@@ -1,8 +1,8 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { EditOwnerPage } from '../../../../features/owners/pages/EditOwnerPage'
 import { permissions } from '../../../../utils/permissions';
-import type { CurrentUser } from '../../../../features/auth/api/me';
 import type { UserRoles } from '../../../../utils/types';
+import type { CurrentUser } from '../../../../entities/auth/api/me';
 
 export const Route = createFileRoute('/_authenticated/owners/$id/edit')({
   component: EditOwnerPage,

@@ -2,14 +2,14 @@ import { useParams } from "@tanstack/react-router"
 import { Box } from "../../../../components/Box"
 import { Infos } from "../../../../components/Infos";
 import styles from './ViewOwnerPage.module.css'
-import { useGetOwnerAndPets } from "../../hooks/useGetOwnerAndPets";
 import { SimpleTable, type Column } from "../../../../components/SimpleTable";
-import type { Appointment, Pet } from "../../utils/types";
 import { calculateAge } from "../../../../utils/calculateAge";
 import { ActionTable } from "../../../../components/ActionTable";
 import { EyeIcon, PenIcon, Trash2Icon } from "lucide-react";
-import { useGetAppointments } from "../../hooks/useGetAppointments";
 import { StatusBadge } from "../../components/StatusBadge";
+import { useGetOwnerAndPets } from "../../../../entities/owner/api/hooks/useGetOwnerAndPets";
+import { useGetAppointments } from "../../../../entities/owner/api/hooks/useGetAppointments";
+import type { Appointment, Pet } from "../../../../entities/owner/types";
 
 function formatDateTime(date: string) {
   return new Date(date).toLocaleString("pt-BR", {

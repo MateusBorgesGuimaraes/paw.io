@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { currentUserQuery } from "../features/auth/api/me";
 import { LoginPage } from "../features/auth/pages/LoginPage";
+import { currentUserQuery } from "../entities/auth/api/me";
 
 export const Route = createFileRoute("/login")({
   beforeLoad: async ({ context }) => {

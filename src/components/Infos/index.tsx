@@ -2,7 +2,7 @@ import styles from './Infos.module.css'
 
 type InfoItem = {
   title: string;
-  info: string | number | null | undefined;
+  info: string | number | ReactNode | null | undefined;
 };
 
 type InfosProps = {

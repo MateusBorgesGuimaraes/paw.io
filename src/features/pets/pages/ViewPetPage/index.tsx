@@ -1,11 +1,11 @@
 import { useParams } from "@tanstack/react-router"
 import { Box } from "../../../../components/Box"
 import { TabComponent } from "../../components/TabComponent"
-import { useGetPet } from "../../hooks/useGetPet"
 import styles from './ViewPetPage.module.css'
 import { Badge } from "../../../../components/Badge"
 import { calculateAge } from "../../../../utils/calculateAge"
 import { ButtonLink } from "../../../../components/form/ButtonLink"
+import { useGetPet } from "../../../../entities/pet/api/hooks/useGetPet"
 
 export const ViewPetPage = () => {
   const {id} = useParams({from: '/_authenticated/pets/$id/'})

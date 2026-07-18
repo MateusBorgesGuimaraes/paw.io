@@ -5,12 +5,12 @@ import { Box } from "../../../../components/Box";
 import { ActionTable } from "../../../../components/ActionTable";
 import { AdvancedTable } from "../../../../components/AdvancedTable";
 import { ButtonLink } from "../../../../components/form/ButtonLink";
-import { useGetOwners } from "../../hooks/useGetOwners";
-import { useToggleOwnerStatus } from "../../hooks/useToggleOwnerStatus";
 import { useDebouncedValue } from "../../../../utils/hooks/useDebouncedValue";
-import type { OwnerTable } from "../../utils/types";
 import styles from "./OwnerPage.module.css";
 import { PermissionGate } from "../../../../components/PermissionGate";
+import { useGetOwners } from "../../../../entities/owner/api/hooks/useGetOwners";
+import { useToggleOwnerStatus } from "../../../../entities/owner/api/hooks/useToggleOwnerStatus";
+import type { OwnerTable } from "../../../../entities/owner/types";
 
 const PAGE_SIZE = 5;
 

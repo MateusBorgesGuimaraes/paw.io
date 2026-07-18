@@ -1,8 +1,6 @@
 import { Badge } from "../../../../components/Badge";
-import { appointmentStatusMap, paymentStatusMap, petStatusMap } from "../../utils/statusMap";
-import type { AppointmentStatus, PaymentStatus, PetStatus } from "../../utils/types";
-
-
+import { appointmentStatusMap, paymentStatusMap, petStatusMap } from "../../../../entities/owner/statusMap";
+import type { AppointmentStatus, PaymentStatus, PetStatus } from "../../../../entities/owner/types";
 
 type StatusBadgeProps =
   | { type: "appointment"; status: AppointmentStatus }

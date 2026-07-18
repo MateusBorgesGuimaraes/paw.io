@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { authSchema, type AuthSchema } from "../../schemas/auth.schema";
-import { useLogin } from "../../hooks/useLogin";
 import styles from "./LoginForm.module.css";
 import { Input } from "../../../../components/form/Input";
 import { MoveRight } from "lucide-react";
+import { useLogin } from "../../../../entities/auth/api/hooks/useLogin";
 
 export const LoginForm = () => {
   const {

@@ -1,8 +1,8 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { ViewOwnerPage } from '../../../../features/owners/pages/ViewOwnerPage'
-import type { CurrentUser } from '../../../../features/auth/api/me';
 import { permissions } from '../../../../utils/permissions';
 import type { UserRoles } from '../../../../utils/types';
+import type { CurrentUser } from '../../../../entities/auth/api/me';
 
 export const Route = createFileRoute('/_authenticated/owners/$id/')({
   component: ViewOwnerPage,
