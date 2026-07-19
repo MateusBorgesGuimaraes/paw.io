@@ -1,0 +1,11 @@
+.containerExm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.headerExm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

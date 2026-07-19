@@ -1,16 +1,21 @@
-import { Badge } from "../../../../components/Badge";
-import { appointmentStatusMap, paymentStatusMap, petStatusMap } from "../../../../entities/owner/statusMap";
-import type { AppointmentStatus, PaymentStatus, PetStatus } from "../../../../entities/owner/types";
+import { Badge } from "../Badge";
+import { appointmentStatusMap, examStatusMap, paymentStatusMap, petStatusMap, treatmentStatusMap } from "../../entities/owner/statusMap";
+import type { AppointmentStatus, PaymentStatus, PetStatus } from "../../entities/owner/types";
+import type { ExamStatus, TreatmentStatus } from "../../entities/pet/types";
 
 type StatusBadgeProps =
   | { type: "appointment"; status: AppointmentStatus }
   | { type: "payment"; status: PaymentStatus }
-  | { type: "pet"; status: PetStatus };
+  | { type: "pet"; status: PetStatus }
+  | { type: "exam"; status: ExamStatus }
+  | { type: "treatment"; status: TreatmentStatus };
 
 const maps = {
   appointment: appointmentStatusMap,
   payment: paymentStatusMap,
   pet: petStatusMap,
+  exam: examStatusMap,
+  treatment: treatmentStatusMap,
 } as const;
 
 export function StatusBadge({ type, status }: StatusBadgeProps) {

@@ -106,7 +106,7 @@ export type PetMedicalHistory = {
   appointment_status: string;
   vet_name: string;
   specialty: string;
-  medical_record_id: number | null;
+  medical_record_id: number;
   symptoms: string | null;
   diagnosis: string | null;
   observations: string | null;

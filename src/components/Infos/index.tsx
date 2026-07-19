@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import styles from './Infos.module.css'
 
 type InfoItem = {

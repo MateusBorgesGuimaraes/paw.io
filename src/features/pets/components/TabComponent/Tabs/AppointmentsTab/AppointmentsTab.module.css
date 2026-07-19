@@ -1,0 +1,11 @@
+.containerApt {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.headerApt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

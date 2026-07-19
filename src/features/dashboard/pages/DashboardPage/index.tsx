@@ -22,12 +22,8 @@ import { Box } from "../../../../components/Box";
 import styles from "./DashboardPage.module.css";
 import { useDashboard } from "../../hooks/useDashboard";
 import { SimpleTable, type Column } from "../../../../components/SimpleTable";
-import {
-  statusLabelMap,
-  statusVariantMap,
-  type DashboardAppointment,
-} from "../../utils/types";
-import { Badge } from "../../../../components/Badge";
+import {type DashboardAppointment} from "../../utils/types";
+import { StatusBadge } from "../../../../components/StatusBadge";
 const COLORS = ["var(--color-primary)", "var(--color-success)"];
 
 export const DashboardPage = () => {
@@ -68,9 +64,7 @@ export const DashboardPage = () => {
     {
       header: "Status",
       accessor: (row) => (
-        <Badge variant={statusVariantMap[row.status]}>
-          {statusLabelMap[row.status]}
-        </Badge>
+        <StatusBadge type="appointment" status={row.status}  />
       ),
     },
   ];

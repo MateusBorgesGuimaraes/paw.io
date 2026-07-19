@@ -9,7 +9,7 @@ import { useDebouncedValue } from '../../../../utils/hooks/useDebouncedValue';
 import { AdvancedTable } from '../../../../components/AdvancedTable';
 import { ActionTable } from '../../../../components/ActionTable';
 import { EyeIcon, PenIcon } from 'lucide-react';
-import { StatusBadge } from '../../../owners/components/StatusBadge';
+import { StatusBadge } from '../../../../components/StatusBadge';
 import type { PetTable } from '../../../../entities/pet/types';
 import { useGetPets } from '../../../../entities/pet/api/hooks/useGetPets';
 const PAGE_SIZE = 5;

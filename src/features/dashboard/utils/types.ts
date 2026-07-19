@@ -1,25 +1,6 @@
 export type Status =
   "scheduled" | "in_progress" | "completed" | "cancelled" | "no_show";
 
-type BadgeVariant =
-  "neutral" | "primary" | "success" | "warning" | "danger" | "info";
-
-export const statusVariantMap: Record<Status, BadgeVariant> = {
-  scheduled: "info",
-  in_progress: "primary",
-  completed: "success",
-  cancelled: "danger",
-  no_show: "warning",
-};
-
-export const statusLabelMap: Record<Status, string> = {
-  scheduled: "Agendada",
-  in_progress: "Em andamento",
-  completed: "Concluída",
-  cancelled: "Cancelada",
-  no_show: "Não compareceu",
-};
-
 export type DashboardAppointment = {
   appointment_id: number;
   scheduled_at: string;

@@ -1,6 +1,11 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import styles from "./TabComponent.module.css";
 import { ResumeTab } from "./Tabs/ResumeTab";
+import { AppointmentsTab } from "./Tabs/AppointmentsTab";
+import { MedicalRecordsTab } from "./Tabs/MedicalRecordsTab";
+import { VaccinesTab } from "./Tabs/VaccinesTab";
+import { ExamsTab } from "./Tabs/ExamsTab";
+import { TreatmentsTab } from "./Tabs/TreatmentsTab";
 
 export const TabComponent = () => {
   return (
@@ -36,23 +41,23 @@ export const TabComponent = () => {
       </Tabs.Content>
 
       <Tabs.Content className={styles.tabsContent} value="appointments">
-        <p>Consultas Box.</p>
+        <AppointmentsTab />
       </Tabs.Content>
 
       <Tabs.Content className={styles.tabsContent} value="medicalRecords">
-        <p>Prontuarios box.</p>
+        <MedicalRecordsTab />
       </Tabs.Content>
 
       <Tabs.Content className={styles.tabsContent} value="vaccines">
-        <p>Vacinas box.</p>
+        <VaccinesTab />
       </Tabs.Content>
 
       <Tabs.Content className={styles.tabsContent} value="exams">
-        <p>Exanes box.</p>
+        <ExamsTab />
       </Tabs.Content>
 
       <Tabs.Content className={styles.tabsContent} value="treatments">
-        <p>Tratamentos box.</p>
+        <TreatmentsTab />
       </Tabs.Content>
     </Tabs.Root>
   );

@@ -6,6 +6,7 @@ import { useGetPetAppointments } from "../../../../../../entities/pet/api/hooks/
 import { useGetPetVaccines } from "../../../../../../entities/vaccine/api/hooks/useGetPetVaccines";
 import { Badge } from "../../../../../../components/Badge";
 import styles from './ResumeTab.module.css'
+import { StatusBadge } from "../../../../../../components/StatusBadge";
 
 export const ResumeTab = () => {
   const { id } = useParams({ from: '/_authenticated/pets/$id/' });
@@ -35,7 +36,7 @@ export const ResumeTab = () => {
      { title: "Veterinario", info: lastApt.vet_name },
      { title: "Motivo", info: lastApt.reason },
      { title: "Notas", info: lastApt.notes},
-     { title: "Status", info: lastApt.status },
+     { title: "Status", info: <StatusBadge type="appointment" status={lastApt.status} /> },
    ];
 
   const vaccineData = nextVaccine ? [

@@ -6,7 +6,7 @@ import { SimpleTable, type Column } from "../../../../components/SimpleTable";
 import { calculateAge } from "../../../../utils/calculateAge";
 import { ActionTable } from "../../../../components/ActionTable";
 import { EyeIcon, PenIcon, Trash2Icon } from "lucide-react";
-import { StatusBadge } from "../../components/StatusBadge";
+import { StatusBadge } from "../../../../components/StatusBadge";
 import { useGetOwnerAndPets } from "../../../../entities/owner/api/hooks/useGetOwnerAndPets";
 import { useGetAppointments } from "../../../../entities/owner/api/hooks/useGetAppointments";
 import type { Appointment, Pet } from "../../../../entities/owner/types";
