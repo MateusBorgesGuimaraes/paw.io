@@ -15,8 +15,8 @@ import {
   HospitalIcon,
   MessageSquareWarningIcon,
   PawPrintIcon,
+  ShieldUserIcon,
   SquareArrowRightExitIcon,
-  StethoscopeIcon,
   SyringeIcon,
   UsersRoundIcon,
 } from "lucide-react";
@@ -51,9 +51,9 @@ export function AuthLayout() {
           roles: ["admin", "receptionist"],
         },
         {
-          link: "/veterinarios",
-          label: "Veterinários",
-          icon: <StethoscopeIcon />,
+          link: "/users",
+          label: "Usuarios",
+          icon: <ShieldUserIcon />,
           roles: ["admin"],
         },
       ],
