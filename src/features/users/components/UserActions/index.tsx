@@ -10,12 +10,10 @@ interface ActionableRow {
 
 export function UserActions({
   row,
-  basePath,
   toggleStatus,
   isPending,
 }: {
   row: ActionableRow;
-  basePath: "users" | "veterinarians";
   toggleStatus: (id: number) => void;
   isPending: boolean;
 }) {
@@ -24,12 +22,12 @@ export function UserActions({
       <ActionTable
         icon={EyeIcon}
         label="Visualizar"
-        href={`/${basePath}/${row.id}/`}
+        href={`/users/${row.id}/`}
       />
       <ActionTable
         icon={PenIcon}
         label="Editar"
-        href={`/${basePath}/${row.id}/edit`}
+        href={`/users/${row.id}/edit`}
       />
       <PermissionGate roles={["admin"]}>
         <ActionTable

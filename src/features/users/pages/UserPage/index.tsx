@@ -48,7 +48,6 @@ export const UserPage = () => {
         cell: ({ row }: { row: Row<UserTable> }) => (
           <UserActions
             row={row.original}
-            basePath="users"
             toggleStatus={toggleStatus}
             isPending={isPending}
           />
@@ -71,7 +70,6 @@ export const UserPage = () => {
         cell: ({ row }: { row: Row<VeterinarianTable> }) => (
           <UserActions
             row={row.original}
-            basePath="veterinarians"
             toggleStatus={toggleStatus}
             isPending={isPending}
           />
