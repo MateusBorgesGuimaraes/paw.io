@@ -63,7 +63,7 @@ export function AuthLayout() {
       roles: ["admin", "receptionist", "veterinarian"],
       links: [
         {
-          link: "/consulta",
+          link: "/appointments",
           label: "Consultas",
           icon: <HospitalIcon />,
           roles: ["admin", "receptionist", "veterinarian"],

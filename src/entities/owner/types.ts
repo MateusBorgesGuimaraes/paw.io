@@ -1,3 +1,6 @@
+import type { AppointmentStatus } from "../appointment/types";
+import type { Gender, PetStatus } from "../pet/types";
+
 export type OwnerTable = {
   id: number;
   name: string;
@@ -27,12 +30,9 @@ export type Owner = {
   is_active: number;
 }
 
-export type PetStatus = 'active'| 'inactive' | 'deceased'
 export type PaymentStatus = 'pending' | 'paid' | 'cancelled' | 'refunded'
 export type PaymentMethod = 'pix' | 'credit_card' | 'debit_card' | 'cash' | 'bank_transfer' | 'health_plan'
 export type TreatmentStatus = 'active'| 'completed'| 'cancelled'
-export type AppointmentStatus = 'scheduled' | 'in_progress' | 'completed' | 'cancelled' | 'no_show'
-export type Gender = 'M'|'F'
 
 export type Pet = {
   id: number,

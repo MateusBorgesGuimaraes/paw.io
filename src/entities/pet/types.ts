@@ -1,4 +1,9 @@
-export type PetStatus = 'active'| 'inactive'| 'deceased';
+import type { AppointmentStatus } from "../appointment/types";
+
+export type PetStatus = 'active' | 'inactive' | 'deceased';
+
+export type Gender = 'M'|'F'
+
 
 export type PetTable = {
   id: number;
@@ -19,7 +24,7 @@ export type CreatePet = {
   name: string;
   species: string;
   breed?: string;
-  gender: "M" | "F";
+  gender: Gender;
   weight: number;
   birth_date: string;
   is_neutered: "0" | "1";
@@ -149,8 +154,6 @@ export type PetActiveTreatment = {
   consultation_date: string;
 };
 
-export type AppointmentStatus =
-  "scheduled" | "in_progress" | "completed" | "cancelled" | "no_show";
 
 export type PetAppointment = {
   appointment_id: number;
